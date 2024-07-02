@@ -1,5 +1,4 @@
 import { Hono } from "hono"
-import superjson from "superjson"
 
 const fibApp = new Hono()
 
