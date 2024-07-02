@@ -66,9 +66,3 @@ bun run dev
 ```shell
 bun run test
 ```
-
-### デプロイ
-
-```shell
-bun run deploy
-```
