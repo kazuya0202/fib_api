@@ -45,35 +45,47 @@ fibApp.get("/", (c) => {
 
   // n が指定されていない場合
   if (n === undefined) {
-    return c.json({
-      status: 400,
-      message: "Bad request.",
-    })
+    return c.json(
+      {
+        status: 400,
+        message: "Bad request.",
+      },
+      400,
+    )
   }
 
   // n が数値ではない場合
   if (!Number.isInteger(Number.parseInt(n))) {
-    return c.json({
-      status: 400,
-      message: "Bad request.",
-    })
+    return c.json(
+      {
+        status: 400,
+        message: "Bad request.",
+      },
+      400,
+    )
   }
 
   const nInt = Number.parseInt(n)
   // n が0以下の場合
   if (nInt <= 0) {
-    return c.json({
-      status: 400,
-      message: "Bad request.",
-    })
+    return c.json(
+      {
+        status: 400,
+        message: "Bad request.",
+      },
+      400,
+    )
   }
 
   // メモ化
   const fib = new Fibbonacci(nInt)
   const fibResult = fib.calc()
-  return c.json({
-    result: fibResult.toString(),
-  })
+  return c.json(
+    {
+      result: fibResult.toString(),
+    },
+    200,
+  )
 })
 
-export { fibApp }
+export { fibApp, Fibbonacci }
